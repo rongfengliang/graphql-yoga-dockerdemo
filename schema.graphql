@@ -1,0 +1,30 @@
+type LocalUser {
+   name: String
+   age: Int
+}
+interface Applogin {
+    name:String
+    account:String
+}
+type MobileApplogin  implements Applogin{
+    type:Int
+    name:String
+    account:String
+}
+
+input MyUser {
+    name:String
+    age:Int
+}
+type Query {
+    hello(name: String): User!
+    localtype(name:String):LocalUser!
+    listOfStrings: [String]!
+}
+type Mutation{
+    addUser(input:MyUser):String
+}
+scalar User {
+    name: String
+    age: Int
+}
