@@ -11,7 +11,12 @@ type MobileApplogin  implements Applogin{
     name:String
     account:String
 }
-
+type DesktopApplogin  implements Applogin{
+    type:Int
+    name:String
+    account:String
+}
+union SearchResult = App|LocalUser
 input MyUser {
     name:String
     age:Int
@@ -20,8 +25,12 @@ type Query {
     hello(name: String): User!
     localtype(name:String):LocalUser!
     listOfStrings: [String]!
+    # interface demo
+    login(name:String):Applogin
     # for directive demo
     appinfo(name:String,flag:Boolean):App
+    # union demo
+    appsearch(name:String):SearchResult
 }
 # app info
 type App {

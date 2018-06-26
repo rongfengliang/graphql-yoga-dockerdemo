@@ -1,6 +1,24 @@
 const { GraphQLServer } = require('graphql-yoga')
 const typeDefs = `schema.graphql`
 const resolvers = {
+  Applogin:{
+    __resolveType(obj) {
+      if (obj.type==1) {
+        return 'MobileApplogin'
+      } else {
+        return 'DesktopApplogin'
+      }
+    }
+  },
+  SearchResult:{
+    __resolveType(obj) {
+      if (obj.type) {
+        return 'App'
+      } else {
+        return 'LocalUser'
+      }
+    }  
+  },
   Query: {
     hello: function(_,name){
         return {
@@ -13,6 +31,28 @@ const resolvers = {
         name:`${ob.name}`,
         age: ob.name.length
        }
+    },
+    login:function(parent,ob){
+       if (ob.name=="dalong"){
+        return {
+          name:"dalong",
+          account:"app mobile info"
+        }
+       }
+       else {
+        return {
+          name:"dalong",
+          type:44,
+          account:"app mobile info"
+        }
+       }
+    },
+    appsearch:function(parent,ob){
+      return {
+       name:"demoaopp",
+       age:333,
+       type:55
+      }
     },
     appinfo:function(parent,ob){
       console.log(ob,parent)
