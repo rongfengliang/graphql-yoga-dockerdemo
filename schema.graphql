@@ -20,6 +20,15 @@ type Query {
     hello(name: String): User!
     localtype(name:String):LocalUser!
     listOfStrings: [String]!
+    # for directive demo
+    appinfo(name:String,flag:Boolean):App
+}
+# app info
+type App {
+    # app name 
+    name:String
+    # app type 
+    type:Int
 }
 type Mutation{
     addUser(input:MyUser):String

@@ -14,6 +14,13 @@ const resolvers = {
         age: ob.name.length
        }
     },
+    appinfo:function(parent,ob){
+      console.log(ob,parent)
+      return {
+        name:ob.name,
+        type:3
+      }
+    },
     listOfStrings:function(parent){
         return [
           "dalong",
