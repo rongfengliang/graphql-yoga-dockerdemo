@@ -26,6 +26,10 @@ open http://localhost:4000
 
 ![image](./images/2.png)
 
+![image](./images/3.png)
+
+![image](./images/4.png)
+
 ## for docker useage
 
 * build image
